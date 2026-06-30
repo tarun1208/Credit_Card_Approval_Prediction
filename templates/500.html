@@ -1,0 +1,192 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- ==========================================
+                500 PAGE
+========================================== -->
+
+<section class="error-page">
+
+<div class="container">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-8">
+
+<div class="error-card">
+
+<div class="error-icon bg-warning">
+
+<i class="fa-solid fa-server"></i>
+
+</div>
+
+<h1>
+
+500
+
+</h1>
+
+<h2>
+
+Internal Server Error
+
+</h2>
+
+<p>
+
+Oops! Something went wrong while processing your request.
+
+The server encountered an unexpected error.
+Please try again in a few moments.
+
+</p>
+
+<div class="row mt-5">
+
+<div class="col-md-4">
+
+<div class="mini-box">
+
+<i class="fa-solid fa-rotate fa-2x mb-3 text-primary"></i>
+
+<h5>
+
+Refresh
+
+</h5>
+
+<p>
+
+Reload the application.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="mini-box">
+
+<i class="fa-solid fa-house fa-2x mb-3 text-success"></i>
+
+<h5>
+
+Home
+
+</h5>
+
+<p>
+
+Return to the homepage.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="mini-box">
+
+<i class="fa-solid fa-circle-info fa-2x mb-3 text-warning"></i>
+
+<h5>
+
+Support
+
+</h5>
+
+<p>
+
+Please try again later.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="mt-5">
+
+<a href="{{ url_for('home') }}"
+
+class="btn btn-primary btn-lg me-3">
+
+<i class="fa-solid fa-house"></i>
+
+Home
+
+</a>
+
+<a href="{{ url_for('predict') }}"
+
+class="btn btn-success btn-lg me-3">
+
+<i class="fa-solid fa-microchip"></i>
+
+Try Prediction Again
+
+</a>
+
+<a href="javascript:location.reload();"
+
+class="btn btn-outline-warning btn-lg">
+
+<i class="fa-solid fa-rotate"></i>
+
+Refresh
+
+</a>
+
+</div>
+
+<hr class="my-5">
+
+<div class="alert alert-warning rounded-4">
+
+<h5>
+
+<i class="fa-solid fa-circle-exclamation"></i>
+
+What happened?
+
+</h5>
+
+<p class="mb-0">
+
+This error may occur because of temporary server issues,
+invalid input data, or an unexpected processing error.
+Please refresh the page and try again.
+
+</p>
+
+</div>
+
+<p class="text-muted mt-4">
+
+Credit Card Approval Prediction System
+
+<br>
+
+Powered by Flask • Machine Learning • Random Forest
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

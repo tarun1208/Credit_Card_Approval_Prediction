@@ -1,0 +1,5 @@
+Model,AUC Score
+Random Forest,0.7264883696402873
+Gradient Boosting,0.6468619972850587
+Decision Tree,0.6115705947127821
+Logistic Regression,0.5207691880238652

@@ -1,0 +1,791 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- ==========================================
+        PREDICTION PAGE
+========================================== -->
+
+<section class="prediction-page">
+
+<div class="container">
+
+<!-- Heading -->
+
+<div class="prediction-header">
+
+<div class="prediction-badge">
+
+<i class="fa-solid fa-microchip"></i>
+
+AI Powered Banking System
+
+</div>
+
+<h1>
+
+Credit Card Approval Prediction
+
+</h1>
+
+<p>
+
+Fill in the customer information below.
+Our Machine Learning model will instantly
+predict whether the customer is eligible
+for Credit Card Approval.
+
+</p>
+
+</div>
+
+<!-- Form Starts -->
+
+<form id="prediction-form"
+      action="{{ url_for('result') }}"
+      method="POST">
+<div class="row">
+
+<!-- =====================================
+        LEFT COLUMN
+====================================== -->
+
+<div class="col-lg-6">
+
+<div class="prediction-card">
+
+<h3>
+
+<i class="fa-solid fa-user"></i>
+
+Personal Information
+
+</h3>
+
+<!-- =====================================
+        PERSONAL INFORMATION
+====================================== -->
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-user"></i>
+
+Gender
+
+</label>
+
+<select class="form-control" name="CODE_GENDER" required>
+
+<option value="">Select Gender</option>
+
+<option value="M">Male</option>
+
+<option value="F">Female</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-cake-candles"></i>
+
+Age
+
+</label>
+
+<input
+
+type="number"
+
+class="form-control"
+
+name="AGE"
+
+placeholder="Enter Age"
+
+min="18"
+
+max="80"
+
+required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-users"></i>
+
+Family Members
+
+</label>
+
+<input
+
+type="number"
+
+step="0.1"
+
+class="form-control"
+
+name="CNT_FAM_MEMBERS"
+
+placeholder="Enter Family Members"
+
+required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-child-reaching"></i>
+
+Children
+
+</label>
+
+<input
+
+type="number"
+
+class="form-control"
+
+name="CNT_CHILDREN"
+
+placeholder="Number of Children"
+
+min="0"
+
+required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-heart"></i>
+
+Family Status
+
+</label>
+
+<select
+
+class="form-control"
+
+name="NAME_FAMILY_STATUS"
+
+required>
+
+<option value="">Choose Status</option>
+
+<option>Married</option>
+
+<option>Single / not married</option>
+
+<option>Civil marriage</option>
+
+<option>Separated</option>
+
+<option>Widow</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-house-user"></i>
+
+Housing Type
+
+</label>
+
+<select
+
+class="form-control"
+
+name="NAME_HOUSING_TYPE"
+
+required>
+
+<option value="">Choose Housing</option>
+
+<option>House / apartment</option>
+
+<option>Rented apartment</option>
+
+<option>Office apartment</option>
+
+<option>Municipal apartment</option>
+
+<option>With parents</option>
+
+<option>Co-op apartment</option>
+
+</select>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================
+        RIGHT COLUMN
+====================================== -->
+
+<div class="col-lg-6">
+
+<div class="prediction-card">
+
+<h3>
+
+<i class="fa-solid fa-briefcase"></i>
+
+Employment Information
+
+</h3>
+
+<!-- =====================================
+        EMPLOYMENT INFORMATION
+====================================== -->
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-briefcase"></i>
+
+Income Type
+
+</label>
+
+<select
+class="form-control"
+name="NAME_INCOME_TYPE"
+required>
+
+<option value="">Select Income Type</option>
+
+<option>Working</option>
+
+<option>Commercial associate</option>
+
+<option>Pensioner</option>
+
+<option>State servant</option>
+
+<option>Student</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+Education
+
+</label>
+
+<select
+class="form-control"
+name="NAME_EDUCATION_TYPE"
+required>
+
+<option value="">Select Education</option>
+
+<option>Higher education</option>
+
+<option>Secondary / secondary special</option>
+
+<option>Incomplete higher</option>
+
+<option>Lower secondary</option>
+
+<option>Academic degree</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-user-tie"></i>
+
+Occupation
+
+</label>
+
+<select
+class="form-control"
+name="OCCUPATION_TYPE"
+required>
+
+<option value="">Select Occupation</option>
+
+<option>Laborers</option>
+
+<option>Core staff</option>
+
+<option>Managers</option>
+
+<option>Drivers</option>
+
+<option>Sales staff</option>
+
+<option>Medicine staff</option>
+
+<option>High skill tech staff</option>
+
+<option>Accountants</option>
+
+<option>Cooking staff</option>
+
+<option>Security staff</option>
+
+<option>Cleaning staff</option>
+
+<option>Private service staff</option>
+
+<option>Low-skill Laborers</option>
+
+<option>Secretaries</option>
+
+<option>Waiters/barmen staff</option>
+
+<option>Realty agents</option>
+
+<option>HR staff</option>
+
+<option>IT staff</option>
+
+<option>Unknown</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-business-time"></i>
+
+Employment Years
+
+</label>
+
+<input
+type="number"
+class="form-control"
+name="EMPLOYED_YEARS"
+placeholder="Years of Employment"
+min="0"
+max="50"
+required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-indian-rupee-sign"></i>
+
+Annual Income
+
+</label>
+
+<input
+type="number"
+class="form-control"
+name="AMT_INCOME_TOTAL"
+placeholder="Annual Income"
+required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-wallet"></i>
+
+Income Per Person
+
+</label>
+
+<input
+type="number"
+class="form-control"
+name="INCOME_PER_PERSON"
+placeholder="Income Per Person"
+required>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================
+        THIRD ROW
+====================================== -->
+
+<div class="row mt-4">
+
+<div class="col-lg-6">
+
+<div class="prediction-card">
+
+<h3>
+
+<i class="fa-solid fa-money-check-dollar"></i>
+
+Financial Information
+
+</h3>
+
+<!-- =====================================
+        FINANCIAL INFORMATION
+====================================== -->
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-house"></i>
+
+Own House
+
+</label>
+
+<select
+class="form-control"
+name="FLAG_OWN_REALTY"
+required>
+
+<option value="">Select</option>
+
+<option value="Y">Yes</option>
+
+<option value="N">No</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-car"></i>
+
+Own Car
+
+</label>
+
+<select
+class="form-control"
+name="FLAG_OWN_CAR"
+required>
+
+<option value="">Select</option>
+
+<option value="Y">Yes</option>
+
+<option value="N">No</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-children"></i>
+
+Child Ratio
+
+</label>
+
+<input
+type="number"
+step="0.01"
+class="form-control"
+name="CHILD_RATIO"
+placeholder="Child Ratio"
+required>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================
+        CONTACT INFORMATION
+====================================== -->
+
+<div class="col-lg-6">
+
+<div class="prediction-card">
+
+<h3>
+
+<i class="fa-solid fa-address-book"></i>
+
+Contact Information
+
+</h3>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-mobile-screen"></i>
+
+Mobile Available
+
+</label>
+
+<select
+class="form-control"
+name="FLAG_MOBIL">
+
+<option value="1">Yes</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-phone"></i>
+
+Work Phone
+
+</label>
+
+<select
+class="form-control"
+name="FLAG_WORK_PHONE">
+
+<option value="1">Yes</option>
+
+<option value="0">No</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-phone-volume"></i>
+
+Phone
+
+</label>
+
+<select
+class="form-control"
+name="FLAG_PHONE">
+
+<option value="1">Yes</option>
+
+<option value="0">No</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+
+<i class="fa-solid fa-envelope"></i>
+
+Email
+
+</label>
+
+<select
+class="form-control"
+name="FLAG_EMAIL">
+
+<option value="1">Yes</option>
+
+<option value="0">No</option>
+
+</select>
+
+</div>
+
+<!-- =====================================
+        AI INFORMATION
+====================================== -->
+
+<div class="prediction-info">
+
+<div class="info-box">
+
+<i class="fa-solid fa-circle-info"></i>
+
+<h4>
+
+Prediction Information
+
+</h4>
+
+<p>
+
+This system uses an optimized <strong>Random Forest Machine Learning Model</strong>
+trained on historical credit card application data.
+
+The prediction is based on multiple customer attributes including:
+
+</p>
+
+<ul>
+
+<li>✔ Personal Information</li>
+
+<li>✔ Employment Details</li>
+
+<li>✔ Financial Information</li>
+
+<li>✔ Family Details</li>
+
+<li>✔ Contact Availability</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================
+        BUTTONS
+====================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="prediction-buttons text-center">
+
+    
+
+<button type="submit" class="btn btn-primary">
+    Predict Credit Approval
+</button>
+
+<button
+type="reset"
+class="btn btn-outline-secondary btn-lg ms-3">
+
+<i class="fa-solid fa-rotate-left"></i>
+
+Reset Form
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</form>
+
+<!-- =====================================
+        SECURITY MESSAGE
+====================================== -->
+
+<div class="security-note mt-5">
+
+<div class="alert alert-primary shadow-sm">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<strong>Security & Privacy:</strong>
+
+Your information is used only for prediction purposes.
+No customer data is stored permanently on the server.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,903 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<section class="result-page">
+
+<div class="container">
+
+<!-- ===========================
+        HEADER
+============================ -->
+
+<div class="result-header">
+
+<div class="prediction-badge">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Prediction Completed
+
+</div>
+
+<h1>
+
+Credit Card Prediction Result
+
+</h1>
+
+<p>
+
+The Machine Learning model has successfully analyzed
+the customer information.
+
+Below is the prediction summary.
+
+</p>
+
+</div>
+
+<div class="row">
+
+<div class="col-lg-8">
+
+<div class="result-card">
+
+<!-- ==========================================
+            RESULT CARD
+========================================== -->
+
+{% if prediction == 1 %}
+
+<div class="prediction-result approved">
+
+<div class="result-icon success">
+
+<i class="fa-solid fa-circle-check"></i>
+
+</div>
+
+<h2>
+
+Congratulations!
+
+</h2>
+
+<h3>
+
+Credit Card Approved
+
+</h3>
+
+<p>
+
+Based on the customer's profile, the Machine Learning model predicts that
+the applicant is eligible for credit card approval.
+
+</p>
+
+<div class="status-badge success-badge">
+
+<i class="fa-solid fa-shield-check"></i>
+
+LOW RISK CUSTOMER
+
+</div>
+
+{% else %}
+
+<div class="prediction-result rejected">
+
+<div class="result-icon danger">
+
+<i class="fa-solid fa-circle-xmark"></i>
+
+</div>
+
+<h2>
+
+Application Review
+
+</h2>
+
+<h3>
+
+Credit Card Not Approved
+
+</h3>
+
+<p>
+
+The Machine Learning model predicts that the customer
+currently has a higher probability of credit risk.
+
+</p>
+
+<div class="status-badge danger-badge">
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+
+HIGH RISK CUSTOMER
+
+</div>
+
+{% endif %}
+
+
+
+<hr class="my-4">
+
+
+
+<div class="model-used">
+
+<div class="row text-center">
+
+<div class="col-md-4">
+
+<h5>
+
+<i class="fa-solid fa-robot"></i>
+
+Model
+
+</h5>
+
+<p>
+
+Optimized Random Forest
+
+</p>
+
+</div>
+
+<div class="col-md-4">
+
+<h5>
+
+<i class="fa-solid fa-bullseye"></i>
+
+Accuracy
+
+</h5>
+
+<p>
+
+97.60%
+
+</p>
+
+</div>
+
+<div class="col-md-4">
+
+<h5>
+
+<i class="fa-solid fa-database"></i>
+
+Features
+
+</h5>
+
+<p>
+
+21 Features Used
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ==========================================
+            RIGHT SIDE PANEL
+========================================== -->
+
+<div class="col-lg-4">
+
+<div class="summary-card">
+
+<h3>
+
+<i class="fa-solid fa-chart-pie"></i>
+
+Prediction Summary
+
+</h3>
+
+<!-- ==========================================
+            SUMMARY DASHBOARD
+========================================== -->
+
+<div class="summary-item">
+
+<h5>
+
+<i class="fa-solid fa-circle-check text-success"></i>
+
+Decision
+
+</h5>
+
+<p>
+
+{% if prediction == 1 %}
+
+<span class="text-success fw-bold">
+
+APPROVED
+
+</span>
+
+{% else %}
+
+<span class="text-danger fw-bold">
+
+REJECTED
+
+</span>
+
+{% endif %}
+
+</p>
+
+</div>
+
+
+
+<div class="summary-item">
+
+<h5>
+
+<i class="fa-solid fa-chart-column text-primary"></i>
+
+Approval Probability
+
+</h5>
+
+<p>
+
+{{ probability }}%
+
+</p>
+
+<div class="progress">
+
+<div class="progress-bar bg-success"
+     role="progressbar"
+     style="width:80%;">
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="summary-item">
+
+<h5>
+
+<i class="fa-solid fa-shield-halved text-warning"></i>
+
+Risk Level
+
+</h5>
+
+<p>
+
+{% if probability >= 80 %}
+
+<span class="badge bg-success">
+
+LOW
+
+</span>
+
+{% elif probability >= 50 %}
+
+<span class="badge bg-warning text-dark">
+
+MEDIUM
+
+</span>
+
+{% else %}
+
+<span class="badge bg-danger">
+
+HIGH
+
+</span>
+
+{% endif %}
+
+</p>
+
+</div>
+
+
+
+<div class="summary-item">
+
+<h5>
+
+<i class="fa-solid fa-bullseye text-info"></i>
+
+Prediction Confidence
+
+</h5>
+
+<p>
+
+{{ probability }}%
+
+</p>
+
+<div class="progress">
+
+<div class="progress-bar bg-info"
+
+role="progressbar"
+
+style="width: 80%;"
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<hr>
+
+
+
+<div class="statistics-mini">
+
+<div class="row text-center">
+
+<div class="col-6">
+
+<div class="mini-box">
+
+<h4>
+
+21
+
+</h4>
+
+<p>
+
+Features
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-6">
+
+<div class="mini-box">
+
+<h4>
+
+97.6%
+
+</h4>
+
+<p>
+
+Accuracy
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ==========================================
+        CUSTOMER SUMMARY
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="customer-summary">
+
+<h3>
+
+<i class="fa-solid fa-user-shield"></i>
+
+Customer Summary
+
+</h3>
+
+<!-- ==========================================
+            CUSTOMER PROFILE
+========================================== -->
+
+<div class="row mt-4">
+
+<div class="col-lg-12">
+
+<div class="customer-profile">
+
+<div class="profile-header">
+
+<h3>
+
+<i class="fa-solid fa-id-card"></i>
+
+Customer Profile Summary
+
+</h3>
+
+<p>
+
+The following customer information was analyzed by the Machine Learning model.
+
+</p>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6">
+
+<div class="profile-item">
+
+<span>
+
+<i class="fa-solid fa-user"></i>
+
+Gender
+
+</span>
+
+<strong>
+
+{{ customer["Gender"] }}
+
+</strong>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="profile-item">
+
+<span>
+
+<i class="fa-solid fa-cake-candles"></i>
+
+Age
+
+</span>
+
+<strong>
+
+{{ customer["Age"] }} Years
+
+</strong>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6">
+
+<div class="profile-item">
+
+<span>
+
+<i class="fa-solid fa-indian-rupee-sign"></i>
+
+Annual Income
+
+</span>
+
+<strong>
+
+₹ {{ "{:,.0f}".format(customer["Annual Income"]) }}
+
+</strong>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6">
+
+<div class="profile-item">
+
+<span>
+
+<i class="fa-solid fa-briefcase"></i>
+
+Income Type
+
+</span>
+
+<strong>
+
+{{ customer["Income Type"] }}
+
+</strong>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6">
+
+<div class="profile-item">
+
+<span>
+
+<i class="fa-solid fa-user-tie"></i>
+
+Occupation
+
+</span>
+
+<strong>
+
+{{ customer["Occupation"] }}
+
+</strong>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6">
+
+<div class="profile-item">
+
+<span>
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+Education
+
+</span>
+
+<strong>
+
+{{ customer["Education"] }}
+
+</strong>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6">
+
+<div class="profile-item">
+
+<span>
+
+<i class="fa-solid fa-business-time"></i>
+
+Employment Years
+
+</span>
+
+<strong>
+
+{{ customer["Employment Years"] }}
+
+Years
+
+</strong>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6">
+
+<div class="profile-item">
+
+<span>
+
+<i class="fa-solid fa-users"></i>
+
+Family Members
+
+</span>
+
+<strong>
+
+{{ customer["Family Members"] }}
+
+</strong>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6">
+
+<div class="profile-item">
+
+<span>
+
+<i class="fa-solid fa-child-reaching"></i>
+
+Children
+
+</span>
+
+<strong>
+
+{{ customer["Children"] }}
+
+</strong>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6">
+
+<div class="profile-item">
+
+<span>
+
+<i class="fa-solid fa-house"></i>
+
+Housing Type
+
+</span>
+
+<strong>
+
+{{ customer["Housing"] }}
+
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ==========================================
+        RECOMMENDATIONS
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="recommendation-card">
+
+<h3>
+
+<i class="fa-solid fa-lightbulb"></i>
+
+AI Recommendation
+
+</h3>
+
+<!-- ==========================================
+            AI RECOMMENDATION
+========================================== -->
+
+{% if prediction == 1 %}
+
+<div class="recommendation-box approved-box">
+
+<div class="recommendation-icon">
+
+<i class="fa-solid fa-circle-check"></i>
+
+</div>
+
+<h4>
+
+Recommendation
+
+</h4>
+
+<p>
+
+The applicant demonstrates a strong credit profile based on the information
+provided. The AI model recommends proceeding with the credit card approval
+process. Final approval may still require identity verification and internal
+bank policy checks.
+
+</p>
+
+<ul>
+
+<li>✔ Low predicted credit risk</li>
+
+<li>✔ Stable financial profile</li>
+
+<li>✔ Suitable for credit card approval</li>
+
+<li>✔ Continue with KYC verification</li>
+
+</ul>
+
+</div>
+
+{% else %}
+
+<div class="recommendation-box rejected-box">
+
+<div class="recommendation-icon">
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+
+</div>
+
+<h4>
+
+Recommendation
+
+</h4>
+
+<p>
+
+The applicant currently shows characteristics associated with higher credit
+risk. The AI model recommends additional financial verification before making
+a final lending decision.
+
+</p>
+
+<ul>
+
+<li>✔ Review employment stability</li>
+
+<li>✔ Verify income documents</li>
+
+<li>✔ Reduce financial risk before approval</li>
+
+<li>✔ Manual verification is recommended</li>
+
+</ul>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+            ACTION BUTTONS
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12 text-center">
+
+<a href="{{ url_for('predict') }}"
+
+class="btn btn-primary btn-lg me-3">
+
+<i class="fa-solid fa-rotate"></i>
+
+Predict Again
+
+</a>
+
+<a href="{{ url_for('home') }}"
+
+class="btn btn-outline-primary btn-lg me-3">
+
+<i class="fa-solid fa-house"></i>
+
+Back to Home
+
+</a>
+
+<a href="{{ url_for('about') }}"
+
+class="btn btn-success btn-lg">
+
+<i class="fa-solid fa-circle-info"></i>
+
+About Project
+
+</a>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+            FOOTER NOTE
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="alert alert-info shadow-sm rounded-4">
+
+<h5>
+
+<i class="fa-solid fa-circle-info"></i>
+
+Important Note
+
+</h5>
+
+<p class="mb-0">
+
+This prediction is generated using a Machine Learning model trained on
+historical credit application records. The result is intended for decision
+support purposes and should not replace institutional credit policies or
+manual verification procedures.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

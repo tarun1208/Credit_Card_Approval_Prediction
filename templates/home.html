@@ -1,0 +1,401 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- ==========================================
+                HERO SECTION
+========================================== -->
+
+<section class="hero">
+
+    <div class="container hero-container">
+
+        <!-- Left Content -->
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+                <i class="fa-solid fa-sparkles"></i>
+                AI Powered Banking Solution
+            </span>
+
+            <h1>
+
+                Credit Card
+
+                <span>Approval Prediction</span>
+
+            </h1>
+
+            <p>
+
+                Predict whether a customer is eligible for a credit card using
+                Artificial Intelligence and Machine Learning. Built using a
+                Tuned Random Forest model with high prediction accuracy.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="{{ url_for('predict') }}" class="btn-primary-custom">
+
+                    <i class="fa-solid fa-play"></i>
+
+                    Predict Now
+
+                </a>
+
+                <a href="{{ url_for('about') }}" class="btn-outline-custom">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    Learn More
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="hero-image">
+
+            <img src="{{ url_for('static', filename='images/credit-card.png') }}">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+            STATISTICS
+========================================== -->
+
+<section class="statistics">
+
+<div class="container">
+
+<div class="row text-center">
+
+<div class="col-md-3">
+
+<div class="stat-card">
+
+<h2>36K+</h2>
+
+<p>Applications</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="stat-card">
+
+<h2>97.6%</h2>
+
+<p>Accuracy</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="stat-card">
+
+<h2>21</h2>
+
+<p>Features</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="stat-card">
+
+<h2>4</h2>
+
+<p>ML Models</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==========================================
+                FEATURES
+========================================== -->
+
+<section class="features">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2>
+
+Why Choose Our System?
+
+</h2>
+
+<p>
+
+A modern Machine Learning platform designed for banks and financial institutions.
+
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-3">
+
+<div class="feature-box">
+
+<i class="fa-solid fa-brain"></i>
+
+<h4>
+
+Artificial Intelligence
+
+</h4>
+
+<p>
+
+AI driven credit approval prediction.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="feature-box">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h4>
+
+Secure
+
+</h4>
+
+<p>
+
+Customer information remains protected.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="feature-box">
+
+<i class="fa-solid fa-bolt"></i>
+
+<h4>
+
+Fast
+
+</h4>
+
+<p>
+
+Prediction completed within seconds.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3">
+
+<div class="feature-box">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h4>
+
+High Accuracy
+
+</h4>
+
+<p>
+
+Optimized Random Forest algorithm.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==========================================
+            HOW IT WORKS
+========================================== -->
+
+<section class="workflow">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h2>
+
+Machine Learning Workflow
+
+</h2>
+
+</div>
+
+<div class="row text-center">
+
+<div class="col">
+
+<div class="step">
+
+<div class="circle">
+
+1
+
+</div>
+
+<h5>
+
+Dataset
+
+</h5>
+
+</div>
+
+</div>
+
+<div class="col">
+
+<div class="step">
+
+<div class="circle">
+
+2
+
+</div>
+
+<h5>
+
+Preprocessing
+
+</h5>
+
+</div>
+
+</div>
+
+<div class="col">
+
+<div class="step">
+
+<div class="circle">
+
+3
+
+</div>
+
+<h5>
+
+Training
+
+</h5>
+
+</div>
+
+</div>
+
+<div class="col">
+
+<div class="step">
+
+<div class="circle">
+
+4
+
+</div>
+
+<h5>
+
+Prediction
+
+</h5>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==========================================
+            CALL TO ACTION
+========================================== -->
+
+<section class="cta">
+
+<div class="container text-center">
+
+<h2>
+
+Ready to Predict Credit Approval?
+
+</h2>
+
+<p>
+
+Start using our AI-powered prediction engine today.
+
+</p>
+
+<a href="{{ url_for('predict') }}"
+
+class="btn-primary-custom">
+
+Start Prediction
+
+</a>
+
+</div>
+
+</section>
+
+{% endblock %}

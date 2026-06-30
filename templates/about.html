@@ -1,0 +1,1703 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- ==========================================
+            ABOUT PAGE
+========================================== -->
+
+<section class="about-page">
+
+<div class="container">
+
+<!-- ==========================================
+            HERO
+========================================== -->
+
+<div class="about-header">
+
+<div class="prediction-badge">
+
+<i class="fa-solid fa-circle-info"></i>
+
+About This Project
+
+</div>
+
+<h1>
+
+AI Based Credit Card Approval Prediction
+
+</h1>
+
+<p>
+
+A Machine Learning powered web application that predicts whether
+a customer is eligible for a credit card by analyzing demographic,
+financial and employment information.
+
+The project demonstrates a complete end-to-end Machine Learning
+pipeline from data preprocessing to deployment using Flask.
+
+</p>
+
+</div>
+
+<div class="row mt-5">
+
+<div class="col-lg-6">
+
+<div class="about-card">
+
+<h3>
+
+<i class="fa-solid fa-lightbulb"></i>
+
+Project Objective
+
+</h3>
+
+<p>
+
+The objective of this project is to assist banks and financial
+institutions in making faster and more consistent credit approval
+decisions using Artificial Intelligence.
+
+Instead of manually evaluating every application,
+the trained Random Forest model predicts whether a customer
+is likely to receive approval based on historical credit records.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="about-card">
+
+<h3>
+
+<i class="fa-solid fa-chart-line"></i>
+
+Business Value
+
+</h3>
+
+<ul>
+
+<li>✔ Faster customer screening</li>
+
+<li>✔ Reduced manual effort</li>
+
+<li>✔ Consistent decision making</li>
+
+<li>✔ AI assisted credit approval</li>
+
+<li>✔ Reduced financial risk</li>
+
+<li>✔ Better customer experience</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+            DATASET INFORMATION
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="section-title text-center">
+
+<h2>
+
+<i class="fa-solid fa-database"></i>
+
+Dataset Overview
+
+</h2>
+
+<p>
+
+The project uses publicly available credit card application and
+credit history datasets. Multiple preprocessing techniques,
+feature engineering, and data cleaning methods were applied before
+training the Machine Learning model.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="row mt-4">
+
+<div class="col-lg-3">
+
+<div class="stat-card">
+
+<i class="fa-solid fa-users"></i>
+
+<h2>
+
+36,457
+
+</h2>
+
+<p>
+
+Customer Records
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-3">
+
+<div class="stat-card">
+
+<i class="fa-solid fa-table-columns"></i>
+
+<h2>
+
+21
+
+</h2>
+
+<p>
+
+Model Features
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-3">
+
+<div class="stat-card">
+
+<i class="fa-solid fa-bullseye"></i>
+
+<h2>
+
+2
+
+</h2>
+
+<p>
+
+Target Classes
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-3">
+
+<div class="stat-card">
+
+<i class="fa-solid fa-brain"></i>
+
+<h2>
+
+97.6%
+
+</h2>
+
+<p>
+
+Best Accuracy
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ==========================================
+            DATASET DETAILS
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-6">
+
+<div class="about-card">
+
+<h3>
+
+<i class="fa-solid fa-file-lines"></i>
+
+Application Dataset
+
+</h3>
+
+<ul>
+
+<li>Total Records : <strong>438,557</strong></li>
+
+<li>Customer Information</li>
+
+<li>Income Details</li>
+
+<li>Employment Details</li>
+
+<li>Education Information</li>
+
+<li>Housing Information</li>
+
+<li>Occupation Information</li>
+
+<li>Family Details</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-6">
+
+<div class="about-card">
+
+<h3>
+
+<i class="fa-solid fa-credit-card"></i>
+
+Credit History Dataset
+
+</h3>
+
+<ul>
+
+<li>Total Records : <strong>1,048,575</strong></li>
+
+<li>Monthly Credit Status</li>
+
+<li>Credit Balance History</li>
+
+<li>Payment Behaviour</li>
+
+<li>Customer IDs</li>
+
+<li>Historical Credit Performance</li>
+
+<li>Target Generation</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ==========================================
+            FEATURE ENGINEERING
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="about-card">
+
+<h3>
+
+<i class="fa-solid fa-gears"></i>
+
+Feature Engineering
+
+</h3>
+
+<div class="row">
+
+<div class="col-md-3">
+
+<div class="mini-box">
+
+<h4>
+
+AGE
+
+</h4>
+
+<p>
+
+Calculated from DAYS_BIRTH
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-3">
+
+<div class="mini-box">
+
+<h4>
+
+EMPLOYED YEARS
+
+</h4>
+
+<p>
+
+Derived from DAYS_EMPLOYED
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-3">
+
+<div class="mini-box">
+
+<h4>
+
+INCOME / PERSON
+
+</h4>
+
+<p>
+
+Income per Family Member
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-3">
+
+<div class="mini-box">
+
+<h4>
+
+CHILD RATIO
+
+</h4>
+
+<p>
+
+Children to Family Ratio
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+        MACHINE LEARNING WORKFLOW
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="section-title text-center">
+
+<h2>
+
+<i class="fa-solid fa-diagram-project"></i>
+
+Machine Learning Pipeline
+
+</h2>
+
+<p>
+
+The project follows a complete end-to-end Machine Learning workflow,
+starting from raw data collection and ending with deployment as a
+Flask web application.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+        PIPELINE
+========================================== -->
+
+<div class="workflow-container">
+
+<div class="workflow-step">
+
+<div class="workflow-icon bg-primary">
+
+<i class="fa-solid fa-download"></i>
+
+</div>
+
+<h4>1. Data Collection</h4>
+
+<p>
+
+Imported the Credit Card Application Dataset and Credit History Dataset.
+
+</p>
+
+</div>
+
+<div class="workflow-arrow">
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+<div class="workflow-step">
+
+<div class="workflow-icon bg-success">
+
+<i class="fa-solid fa-broom"></i>
+
+</div>
+
+<h4>2. Data Cleaning</h4>
+
+<p>
+
+Handled missing values, removed invalid records, and treated outliers for reliable model training.
+
+</p>
+
+</div>
+
+<div class="workflow-arrow">
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+<div class="workflow-step">
+
+<div class="workflow-icon bg-warning">
+
+<i class="fa-solid fa-gears"></i>
+
+</div>
+
+<h4>3. Feature Engineering</h4>
+
+<p>
+
+Created AGE, EMPLOYED_YEARS, INCOME_PER_PERSON and CHILD_RATIO features.
+
+</p>
+
+</div>
+
+<div class="workflow-arrow">
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+<div class="workflow-step">
+
+<div class="workflow-icon bg-info">
+
+<i class="fa-solid fa-code"></i>
+
+</div>
+
+<h4>4. Encoding</h4>
+
+<p>
+
+Converted categorical features into numerical values using Label Encoding.
+
+</p>
+
+</div>
+
+<div class="workflow-arrow">
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+<div class="workflow-step">
+
+<div class="workflow-icon bg-secondary">
+
+<i class="fa-solid fa-scale-balanced"></i>
+
+</div>
+
+<h4>5. Feature Scaling</h4>
+
+<p>
+
+StandardScaler was applied to normalize numerical features before model training.
+
+</p>
+
+</div>
+
+<div class="workflow-arrow">
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+<div class="workflow-step">
+
+<div class="workflow-icon bg-danger">
+
+<i class="fa-solid fa-chart-pie"></i>
+
+</div>
+
+<h4>6. SMOTE</h4>
+
+<p>
+
+Balanced the highly imbalanced target classes using Synthetic Minority Oversampling Technique.
+
+</p>
+
+</div>
+
+<div class="workflow-arrow">
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+<div class="workflow-step">
+
+<div class="workflow-icon bg-dark">
+
+<i class="fa-solid fa-brain"></i>
+
+</div>
+
+<h4>7. Model Training</h4>
+
+<p>
+
+Trained Logistic Regression, Decision Tree, Random Forest and Gradient Boosting models.
+
+</p>
+
+</div>
+
+<div class="workflow-arrow">
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+<div class="workflow-step">
+
+<div class="workflow-icon bg-success">
+
+<i class="fa-solid fa-sliders"></i>
+
+</div>
+
+<h4>8. Hyperparameter Tuning</h4>
+
+<p>
+
+Optimized the Random Forest model using RandomizedSearchCV to improve performance.
+
+</p>
+
+</div>
+
+<div class="workflow-arrow">
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+<div class="workflow-step">
+
+<div class="workflow-icon bg-primary">
+
+<i class="fa-solid fa-cloud-arrow-up"></i>
+
+</div>
+
+<h4>9. Deployment</h4>
+
+<p>
+
+Saved the trained model and deployed it as an interactive Flask web application.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+        PIPELINE SUMMARY
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="about-card">
+
+<h3>
+
+<i class="fa-solid fa-circle-check"></i>
+
+Workflow Summary
+
+</h3>
+
+<p>
+
+The complete pipeline begins with collecting raw customer application and
+credit history data, followed by preprocessing, feature engineering,
+categorical encoding, feature scaling, and handling class imbalance using
+SMOTE. Multiple machine learning algorithms were evaluated, with the
+Random Forest model selected as the final model after hyperparameter
+tuning. The trained model was then serialized using Joblib and integrated
+into a Flask web application to provide real-time credit card approval
+predictions through an intuitive user interface.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+        MODEL PERFORMANCE
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="section-title text-center">
+
+<h2>
+
+<i class="fa-solid fa-brain"></i>
+
+Machine Learning Model Comparison
+
+</h2>
+
+<p>
+
+Multiple Machine Learning algorithms were trained and evaluated.
+The best performing model was selected based on Accuracy,
+AUC Score and overall prediction performance.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="row mt-4">
+
+<!-- Logistic Regression -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="model-card">
+
+<div class="model-icon bg-primary">
+
+<i class="fa-solid fa-chart-line"></i>
+
+</div>
+
+<h4>
+
+Logistic Regression
+
+</h4>
+
+<h2>
+
+70.56%
+
+</h2>
+
+<p>
+
+Accuracy
+
+</p>
+
+<hr>
+
+<p>
+
+AUC Score
+
+</p>
+
+<h5>
+
+0.5208
+
+</h5>
+
+</div>
+
+</div>
+
+
+
+<!-- Decision Tree -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="model-card">
+
+<div class="model-icon bg-warning">
+
+<i class="fa-solid fa-tree"></i>
+
+</div>
+
+<h4>
+
+Decision Tree
+
+</h4>
+
+<h2>
+
+80.27%
+
+</h2>
+
+<p>
+
+Accuracy
+
+</p>
+
+<hr>
+
+<p>
+
+AUC Score
+
+</p>
+
+<h5>
+
+0.6116
+
+</h5>
+
+</div>
+
+</div>
+
+
+
+<!-- Random Forest -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="model-card best-model">
+
+<div class="best-badge">
+
+BEST MODEL
+
+</div>
+
+<div class="model-icon bg-success">
+
+<i class="fa-solid fa-brain"></i>
+
+</div>
+
+<h4>
+
+Random Forest
+
+</h4>
+
+<h2>
+
+97.60%
+
+</h2>
+
+<p>
+
+Accuracy
+
+</p>
+
+<hr>
+
+<p>
+
+AUC Score
+
+</p>
+
+<h5>
+
+0.7265
+
+</h5>
+
+</div>
+
+</div>
+
+
+
+<!-- Gradient Boosting -->
+
+<div class="col-lg-3 col-md-6">
+
+<div class="model-card">
+
+<div class="model-icon bg-danger">
+
+<i class="fa-solid fa-chart-column"></i>
+
+</div>
+
+<h4>
+
+Gradient Boosting
+
+</h4>
+
+<h2>
+
+95.95%
+
+</h2>
+
+<p>
+
+Accuracy
+
+</p>
+
+<hr>
+
+<p>
+
+AUC Score
+
+</p>
+
+<h5>
+
+0.6469
+
+</h5>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ==========================================
+        WHY RANDOM FOREST?
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="about-card">
+
+<h3>
+
+<i class="fa-solid fa-award"></i>
+
+Why Random Forest?
+
+</h3>
+
+<p>
+
+Among all evaluated algorithms, the Random Forest classifier achieved the
+highest overall performance after hyperparameter tuning. It provided the
+best balance between classification accuracy, robustness, and generalization
+on unseen data. The optimized model reached an accuracy of <strong>97.60%</strong>
+and an AUC score of <strong>0.7265</strong>, outperforming Logistic Regression,
+Decision Tree, and Gradient Boosting. Therefore, the tuned Random Forest model
+was selected as the final model for deployment in the Flask application.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ==========================================
+        EVALUATION METRICS
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-4">
+
+<div class="mini-box text-center">
+
+<i class="fa-solid fa-bullseye fa-2x mb-3 text-primary"></i>
+
+<h3>
+
+Accuracy
+
+</h3>
+
+<p>
+
+Measures the percentage of correctly classified customer applications.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-4">
+
+<div class="mini-box text-center">
+
+<i class="fa-solid fa-wave-square fa-2x mb-3 text-success"></i>
+
+<h3>
+
+ROC - AUC
+
+</h3>
+
+<p>
+
+Evaluates the model's ability to distinguish between approved and rejected applicants.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-4">
+
+<div class="mini-box text-center">
+
+<i class="fa-solid fa-scale-balanced fa-2x mb-3 text-danger"></i>
+
+<h3>
+
+F1 Score
+
+</h3>
+
+<p>
+
+Balances precision and recall, especially useful for imbalanced datasets.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+        TECHNOLOGY STACK
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="section-title text-center">
+
+<h2>
+
+<i class="fa-solid fa-laptop-code"></i>
+
+Technology Stack
+
+</h2>
+
+<p>
+
+This project combines Machine Learning, Backend Development,
+Frontend Design, and Model Deployment to build a complete
+AI-powered Credit Card Approval Prediction System.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="row mt-4">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="tech-card">
+
+<i class="fab fa-python"></i>
+
+<h4>Python</h4>
+
+<p>
+
+Core programming language used for data preprocessing,
+model training, and deployment.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="tech-card">
+
+<i class="fas fa-server"></i>
+
+<h4>Flask</h4>
+
+<p>
+
+Backend framework used to build the web application
+and serve prediction requests.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="tech-card">
+
+<i class="fas fa-database"></i>
+
+<h4>Pandas & NumPy</h4>
+
+<p>
+
+Used for data cleaning, preprocessing,
+feature engineering, and numerical computation.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-3 col-md-6">
+
+<div class="tech-card">
+
+<i class="fas fa-brain"></i>
+
+<h4>Scikit-Learn</h4>
+
+<p>
+
+Used for model training, evaluation,
+hyperparameter tuning and prediction.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-3 col-md-6 mt-4">
+
+<div class="tech-card">
+
+<i class="fas fa-balance-scale"></i>
+
+<h4>SMOTE</h4>
+
+<p>
+
+Handled class imbalance by generating
+synthetic minority class samples.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-3 col-md-6 mt-4">
+
+<div class="tech-card">
+
+<i class="fab fa-html5"></i>
+
+<h4>HTML / CSS</h4>
+
+<p>
+
+Designed a responsive and modern user interface
+for customer interaction.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-3 col-md-6 mt-4">
+
+<div class="tech-card">
+
+<i class="fab fa-js-square"></i>
+
+<h4>JavaScript</h4>
+
+<p>
+
+Added interactivity, animations,
+and dynamic user experience.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-3 col-md-6 mt-4">
+
+<div class="tech-card">
+
+<i class="fas fa-save"></i>
+
+<h4>Joblib</h4>
+
+<p>
+
+Serialized and loaded the trained
+Random Forest model for deployment.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ==========================================
+        PROJECT ARCHITECTURE
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="about-card">
+
+<h3>
+
+<i class="fa-solid fa-sitemap"></i>
+
+Project Architecture
+
+</h3>
+
+<div class="architecture-flow">
+
+<div class="flow-box">
+
+Customer
+
+</div>
+
+<i class="fa-solid fa-arrow-right"></i>
+
+<div class="flow-box">
+
+Flask Web App
+
+</div>
+
+<i class="fa-solid fa-arrow-right"></i>
+
+<div class="flow-box">
+
+Preprocessing
+
+</div>
+
+<i class="fa-solid fa-arrow-right"></i>
+
+<div class="flow-box">
+
+Random Forest
+
+</div>
+
+<i class="fa-solid fa-arrow-right"></i>
+
+<div class="flow-box">
+
+Prediction
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ==========================================
+        PROJECT HIGHLIGHTS
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="about-card">
+
+<h3>
+
+<i class="fa-solid fa-star"></i>
+
+Project Highlights
+
+</h3>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="mini-box text-center">
+
+<h4>21</h4>
+
+<p>Input Features</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="mini-box text-center">
+
+<h4>4</h4>
+
+<p>ML Models Evaluated</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="mini-box text-center">
+
+<h4>97.60%</h4>
+
+<p>Best Model Accuracy</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+        DEVELOPER PROFILE
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="section-title text-center">
+
+<h2>
+
+<i class="fa-solid fa-user-graduate"></i>
+
+Developer Profile
+
+</h2>
+
+<p>
+
+This project was developed to demonstrate practical knowledge of
+Machine Learning, Data Science, Feature Engineering, Model Evaluation,
+and Full Stack Deployment using Flask.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="row">
+
+<div class="col-lg-4">
+
+<div class="developer-card text-center">
+
+<div class="developer-icon">
+
+<i class="fa-solid fa-user-tie"></i>
+
+</div>
+
+<h3>
+
+Machine Learning
+
+</h3>
+
+<p>
+
+Built and optimized multiple classification models,
+performed feature engineering, preprocessing,
+SMOTE balancing, and hyperparameter tuning.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-4">
+
+<div class="developer-card text-center">
+
+<div class="developer-icon">
+
+<i class="fa-solid fa-laptop-code"></i>
+
+</div>
+
+<h3>
+
+Web Development
+
+</h3>
+
+<p>
+
+Designed and deployed a responsive Flask application
+using HTML, CSS, JavaScript, and Bootstrap with a
+modern banking-inspired interface.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-4">
+
+<div class="developer-card text-center">
+
+<div class="developer-icon">
+
+<i class="fa-solid fa-cloud"></i>
+
+</div>
+
+<h3>
+
+Deployment Ready
+
+</h3>
+
+<p>
+
+Integrated the trained Random Forest model into
+a production-style Flask application using Joblib,
+feature scaling, and label encoding.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ==========================================
+        KEY SKILLS
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="about-card">
+
+<h3>
+
+<i class="fa-solid fa-medal"></i>
+
+Key Skills Demonstrated
+
+</h3>
+
+<div class="row">
+
+<div class="col-md-3">
+
+<div class="mini-box text-center">
+
+Python
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="mini-box text-center">
+
+Machine Learning
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="mini-box text-center">
+
+Flask
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="mini-box text-center">
+
+Scikit-Learn
+
+</div>
+
+</div>
+
+<div class="col-md-3 mt-3">
+
+<div class="mini-box text-center">
+
+Data Preprocessing
+
+</div>
+
+</div>
+
+<div class="col-md-3 mt-3">
+
+<div class="mini-box text-center">
+
+Feature Engineering
+
+</div>
+
+</div>
+
+<div class="col-md-3 mt-3">
+
+<div class="mini-box text-center">
+
+Random Forest
+
+</div>
+
+</div>
+
+<div class="col-md-3 mt-3">
+
+<div class="mini-box text-center">
+
+Model Deployment
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ==========================================
+        PROJECT CONCLUSION
+========================================== -->
+
+<div class="row mt-5">
+
+<div class="col-lg-12">
+
+<div class="about-card text-center">
+
+<h2>
+
+<i class="fa-solid fa-circle-check text-success"></i>
+
+Project Conclusion
+
+</h2>
+
+<p class="mt-4">
+
+This project demonstrates a complete end-to-end Machine Learning workflow,
+covering data preprocessing, feature engineering, handling imbalanced data,
+training and evaluating multiple classification algorithms, hyperparameter
+optimization, model serialization, and deployment using Flask.
+
+The final optimized Random Forest model achieved an accuracy of
+<strong>97.60%</strong> and provides fast, consistent, and intelligent
+credit card approval predictions through a user-friendly web interface.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}
